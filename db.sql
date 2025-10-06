@@ -8,3 +8,6 @@ CREATE TABLE urls (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     click_count INT DEFAULT 0
 );
+
+-- Run this in your database
+ALTER TABLE urls ADD COLUMN is_custom BOOLEAN DEFAULT FALSE;
