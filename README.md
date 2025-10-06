@@ -1,6 +1,6 @@
 ﻿# url-shortener
 
-##Key Features:
+## Key Features:
 ✅ Minimal JavaScript (only for copy functionality)
 
 ✅ Proper URL validation
@@ -12,4 +12,5 @@
 ✅ Responsive design
 
 ✅ Security measures (SQL injection prevention)
+
 
