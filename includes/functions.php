@@ -11,4 +11,11 @@ function generateShortCode($length = 6) {
 function isValidUrl($url) {
     return filter_var($url, FILTER_VALIDATE_URL) !== false;
 }
+
+// New function to generate QR code URL
+function generateQRCode($url, $size = 150) {
+    // Using QR Server API (free, no API key needed)
+    $encoded_url = urlencode($url);
+    return "https://api.qrserver.com/v1/create-qr-code/?size={$size}x{$size}&data={$encoded_url}";
+}
 ?>

@@ -65,14 +65,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
         
         <?php if ($short_url): ?>
-            <div class="result">
-                <p>Your shortened URL:</p>
-                <div class="short-url">
-                    <input type="text" value="<?php echo htmlspecialchars($short_url); ?>" readonly>
-                    <button onclick="copyToClipboard()">Copy</button>
-                </div>
+    <div class="result">
+        <p>Your shortened URL:</p>
+        <div class="short-url">
+            <input type="text" value="<?php echo htmlspecialchars($short_url); ?>" readonly>
+            <button onclick="copyToClipboard()">Copy</button>
+        </div>
+        
+        <!-- ADD QR CODE SECTION HERE -->
+        <div class="qr-section">
+            <h3>📱 QR Code</h3>
+            <div class="qr-container">
+                <img src="<?php echo generateQRCode($short_url); ?>" 
+                     alt="QR Code for <?php echo htmlspecialchars($short_url); ?>"
+                     class="qr-code">
             </div>
-        <?php endif; ?>
+            <div class="qr-actions">
+                <button onclick="downloadQRCode('<?php echo generateQRCode($short_url, 300); ?>', '<?php echo $short_code; ?>')">
+                    Download QR Code
+                </button>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
     </div>
 
     <!-- Minimal JavaScript for copy functionality -->
@@ -83,6 +98,52 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         document.execCommand('copy');
         alert('URL copied to clipboard!');
     }
+
+    function downloadQRCode(qrUrl, filename) {
+    // Create a temporary link to download the QR code
+    const link = document.createElement('a');
+    link.href = qrUrl;
+    link.download = `qrcode-${filename}.png`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+function downloadQRCode(qrUrl, filename) {
+    fetch(qrUrl)
+        .then(response => response.blob())
+        .then(blob => {
+            // Create a temporary link
+            const url = window.URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `qrcode-${filename}.png`;
+            
+            // Append to body, click, and remove
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Clean up the URL object
+            window.URL.revokeObjectURL(url);
+        })
+        .catch(error => {
+            console.error('Download failed:', error);
+            alert('Download failed. Please try again.');
+        });
+}
+// Preview larger QR code on hover
+document.addEventListener('DOMContentLoaded', function() {
+    const qrCode = document.querySelector('.qr-code');
+    if (qrCode) {
+        qrCode.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.1)';
+        });
+        
+        qrCode.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+        });
+    }
+});
     </script>
 </body>
 </html>

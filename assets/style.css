@@ -123,3 +123,86 @@ button:hover {
     border-radius: 0 5px 5px 0;
     padding: 10px 15px;
 }
+
+/* QR Code Styles */
+.qr-section {
+    margin-top: 25px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 4px solid #28a745;
+}
+
+.qr-section h3 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.qr-container {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.qr-code {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background: white;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    max-width: 200px;
+    height: auto;
+}
+
+.qr-code:hover {
+    transform: scale(1.05);
+}
+
+.qr-actions {
+    text-align: center;
+}
+
+.qr-actions button {
+    background: #28a745;
+    margin: 5px;
+}
+
+.qr-actions button:hover {
+    background: #218838;
+}
+
+/* Responsive QR Code */
+@media (max-width: 480px) {
+    .qr-code {
+        max-width: 150px;
+    }
+}
+
+/* Download Button Styles */
+.download-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 5px;
+    transition: background 0.3s;
+}
+
+.download-btn:hover {
+    background: #218838;
+    color: white;
+    text-decoration: none;
+}
+
+.qr-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
