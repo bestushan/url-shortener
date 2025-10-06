@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: rgba(173, 216, 230, 0.2);
+    border-radius: 5px;
+    padding: 0 0 10px 0;
+/*     
+ border-radius: 10px;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+    padding: 20px; */
+    /* background: rgba(255, 255, 255, 0.9); */
+}
+
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 500px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+h3 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.url-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input[type="url"] {
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+input[type="url"]:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+button {
+    padding: 12px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #5a6fd8;
+}
+
+.message {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.message.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.result {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.short-url {
+    display: flex;
+    margin-top: 10px;
+}
+
+.short-url input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
+    background: #f9f9f9;
+}
+
+.short-url button {
+    border-radius: 0 5px 5px 0;
+    padding: 10px 15px;
+}
